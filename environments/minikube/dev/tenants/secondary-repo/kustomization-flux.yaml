@@ -1,0 +1,14 @@
+# {GIT_PRINCIPAL} cat environments/minikube/dev/tenants/secondary-repo/kustomization-flux.yaml
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: secondary-flux-repo
+  namespace: flux-system
+spec:
+  interval: 1m0s
+  path: ./deploy/dev
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: secondary-flux-repo
